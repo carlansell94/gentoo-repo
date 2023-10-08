@@ -4,6 +4,7 @@ This Gentoo repository contains a collection of packages which I either use or h
 Packages are likely to be GNOME/GTK focused.
 
 ## Current Packages
+* 🔑 app-misc/authenticator: Two-factor auth code generator (https://gitlab.gnome.org/World/Authenticator)
 * 📹 media-video/clapper: A GTK4/GStreamer based video player (https://github.com/Rafostar/clapper)
 * 🌐 net-misc/escambo: API tester (https://github.com/CleoMenezesJr/escambo/)
 
