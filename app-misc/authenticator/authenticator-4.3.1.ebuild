@@ -392,7 +392,7 @@ RDEPEND="
     >=media-libs/gstreamer-1.18
     >=media-libs/gst-plugins-base-1.18
     >=media-libs/gst-plugins-bad-1.18
-    >=gui-libs/libadwaita-1.4
+    >=gui-libs/libadwaita-1.2
     >=media-gfx/zbar-0.20
     >=media-video/pipewire-0.3
 "
