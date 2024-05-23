@@ -11,8 +11,8 @@ BDEPEND="
 	>=dev-libs/glib-2.76.3
 	>=dev-util/blueprint-compiler-0.8.1
 	>=dev-util/gtk-update-icon-cache-3.24.31
-	>=dev-util/meson-1.1.1
-	>=dev-util/ninja-1.11.1-r2
+	>=dev-build/meson-1.1.1
+	>=dev-build/ninja-1.11.1-r2
 	>=gui-libs/gtk-4.10.4
 	>=gui-libs/libadwaita-1.3.2
 	>=sys-devel/gettext-0.21.1
@@ -36,6 +36,7 @@ src_install() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
+	glib-compile-schemas /usr/share/glib-2.0/schemas
 }
 
 pkg_postrm() {
