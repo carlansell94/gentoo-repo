@@ -1,7 +1,7 @@
 EAPI=8
 inherit meson xdg
 
-DESCRIPTION="A GNOME media player built using GJS with GTK4 toolkit."
+DESCRIPTION="A GNOME media player built using GTK4."
 HOMEPAGE="https://github.com/Rafostar/clapper"
 SRC_URI="https://github.com/Rafostar/clapper/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-3"
@@ -9,22 +9,17 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 BDEPEND="
-	>=dev-libs/glib-2.76.3
-	>=dev-build/meson-1.1.1
+	>=dev-libs/glib-2.76.0
+	>=dev-build/meson-0.64.0
 	>=dev-build/ninja-1.11.1-r2
 "
 
 RDEPEND="
-	>=gui-libs/gtk-4.10.4
-	>=media-libs/gstreamer-1.20.5
-	>=media-libs/gst-plugins-base-1.20.5
-	>=dev-libs/gjs-1.76.2
-	>=gui-libs/libadwaita-1.3.3
+	>=gui-libs/gtk-4.10.0
+	>=media-libs/gstreamer-1.20.0
+	>=media-libs/gst-plugins-base-1.20.0
+	>=gui-libs/libadwaita-1.4.0
 "
-
-PATCHES=(
-	"${FILESDIR}/${PV}-appstream-validate.patch"
-)
 
 src_configure() {
 	meson_src_configure
