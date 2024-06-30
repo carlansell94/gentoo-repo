@@ -1,0 +1,13 @@
+diff --git a/podcasts-gtk/src/meson.build b/podcasts-gtk/src/meson.build
+index 8bf8a00..edf6491 100644
+--- a/podcasts-gtk/src/meson.build
++++ b/podcasts-gtk/src/meson.build
+@@ -29,7 +29,7 @@ else
+   message('Building in debug mode')
+ endif
+ 
+-cargo_env = [ 'CARGO_HOME=' + meson.project_build_root() / 'cargo-home' ]
++cargo_env = [ 'CARGO_HOME=' + meson.project_build_root() + '/../cargo_home' ]
+ 
+ cargo_release = custom_target('cargo-build',
+                         build_by_default: true,
