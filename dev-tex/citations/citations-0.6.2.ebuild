@@ -1,0 +1,311 @@
+EAPI=8
+
+CRATES="
+	aead@0.3.2
+	aes@0.6.0
+	aes-gcm@0.8.0
+	aes-soft@0.6.4
+	aesni@0.10.0
+	aho-corasick@1.1.1
+	anyhow@1.0.75
+	async-channel@1.9.0
+	async-executor@1.5.4
+	async-global-executor@2.3.1
+	async-io@1.13.0
+	async-lock@2.8.0
+	async-std@1.12.0
+	async-task@4.4.1
+	async-trait@0.1.73
+	atomic-waker@1.1.2
+	autocfg@1.1.0
+	base-x@0.2.11
+	base64@0.13.1
+	bitflags@1.3.2
+	bitflags@2.4.0
+	block@0.1.6
+	block-buffer@0.9.0
+	blocking@1.4.0
+	bumpalo@3.14.0
+	bytecount@0.6.3
+	bytes@0.5.6
+	bytes@1.5.0
+	cairo-rs@0.18.2
+	cairo-sys-rs@0.18.2
+	cc@1.0.83
+	cfg-expr@0.15.5
+	cfg-if@1.0.0
+	cipher@0.2.5
+	concurrent-queue@2.3.0
+	const_fn@0.4.9
+	cookie@0.14.4
+	cpufeatures@0.2.9
+	cpuid-bool@0.2.0
+	crossbeam-utils@0.8.16
+	crypto-mac@0.10.1
+	ctr@0.6.0
+	curl@0.4.44
+	curl-sys@0.4.66+curl-8.3.0
+	digest@0.9.0
+	discard@1.0.4
+	equivalent@1.0.1
+	errno@0.3.3
+	errno-dragonfly@0.1.2
+	event-listener@2.5.3
+	fastrand@1.9.0
+	fastrand@2.0.1
+	field-offset@0.3.6
+	flume@0.9.2
+	fnv@1.0.7
+	form_urlencoded@1.2.0
+	futures-channel@0.3.28
+	futures-core@0.3.28
+	futures-executor@0.3.28
+	futures-io@0.3.28
+	futures-lite@1.13.0
+	futures-macro@0.3.28
+	futures-sink@0.3.28
+	futures-task@0.3.28
+	futures-util@0.3.28
+	gdk-pixbuf@0.18.0
+	gdk-pixbuf-sys@0.18.0
+	gdk4@0.7.3
+	gdk4-sys@0.7.2
+	generic-array@0.14.7
+	getrandom@0.1.16
+	getrandom@0.2.10
+	gettext-rs@0.7.0
+	gettext-sys@0.21.3
+	ghash@0.3.1
+	gio@0.18.2
+	gio-sys@0.18.1
+	glib@0.18.2
+	glib-macros@0.18.2
+	glib-sys@0.18.1
+	gloo-timers@0.2.6
+	gobject-sys@0.18.0
+	graphene-rs@0.18.1
+	graphene-sys@0.18.1
+	gsk4@0.7.3
+	gsk4-sys@0.7.3
+	gtk4@0.7.3
+	gtk4-macros@0.7.2
+	gtk4-sys@0.7.3
+	hashbrown@0.14.0
+	heck@0.4.1
+	hermit-abi@0.3.3
+	hkdf@0.10.0
+	hmac@0.10.1
+	http@0.2.9
+	http-client@6.5.3
+	http-types@2.12.0
+	idna@0.4.0
+	indexmap@2.0.1
+	infer@0.2.3
+	instant@0.1.12
+	io-lifetimes@1.0.11
+	isahc@0.9.14
+	itoa@1.0.9
+	js-sys@0.3.64
+	kv-log-macro@1.0.7
+	lazy_static@1.4.0
+	libadwaita@0.5.3
+	libadwaita-sys@0.5.3
+	libc@0.2.148
+	libnghttp2-sys@0.1.8+1.55.1
+	libz-sys@1.1.12
+	linux-raw-sys@0.3.8
+	locale_config@0.3.0
+	lock_api@0.4.10
+	log@0.4.20
+	malloc_buf@0.0.6
+	memchr@2.6.3
+	memoffset@0.9.0
+	mime@0.3.17
+	mime_guess@2.0.4
+	minimal-lexical@0.2.1
+	nom@7.1.3
+	nom-bibtex@0.5.0
+	nom-tracable@0.9.0
+	nom-tracable-macros@0.9.0
+	nom_locate@4.2.0
+	nu-ansi-term@0.46.0
+	objc@0.2.7
+	objc-foundation@0.1.1
+	objc_id@0.1.1
+	once_cell@1.18.0
+	opaque-debug@0.3.0
+	openssl-probe@0.1.5
+	openssl-sys@0.9.93
+	overload@0.1.1
+	pango@0.18.0
+	pango-sys@0.18.0
+	parking@2.1.1
+	percent-encoding@2.3.0
+	pin-project@1.1.3
+	pin-project-internal@1.1.3
+	pin-project-lite@0.2.13
+	pin-utils@0.1.0
+	piper@0.2.1
+	pkg-config@0.3.27
+	polling@2.8.0
+	polyval@0.4.5
+	poppler-rs@0.22.0
+	poppler-sys-rs@0.22.0
+	ppv-lite86@0.2.17
+	proc-macro-crate@1.3.1
+	proc-macro-error@1.0.4
+	proc-macro-error-attr@1.0.4
+	proc-macro-hack@0.5.20+deprecated
+	proc-macro2@1.0.67
+	quick-error@2.0.1
+	quote@1.0.33
+	rand@0.7.3
+	rand@0.8.5
+	rand_chacha@0.2.2
+	rand_chacha@0.3.1
+	rand_core@0.5.1
+	rand_core@0.6.4
+	rand_hc@0.2.0
+	regex@1.9.5
+	regex-automata@0.3.8
+	regex-syntax@0.7.5
+	rustc_version@0.2.3
+	rustc_version@0.4.0
+	rustix@0.37.23
+	ryu@1.0.15
+	sanitize-filename@0.5.0
+	schannel@0.1.22
+	scopeguard@1.2.0
+	semver@0.9.0
+	semver@1.0.19
+	semver-parser@0.7.0
+	serde@1.0.188
+	serde_derive@1.0.188
+	serde_json@1.0.107
+	serde_qs@0.8.5
+	serde_spanned@0.6.3
+	serde_urlencoded@0.7.1
+	sha1@0.6.1
+	sha1_smol@1.0.0
+	sha2@0.9.9
+	sharded-slab@0.1.6
+	slab@0.4.9
+	sluice@0.5.5
+	smallvec@1.11.1
+	socket2@0.4.9
+	sourceview5@0.7.1
+	sourceview5-sys@0.7.1
+	spinning_top@0.2.5
+	standback@0.2.17
+	stdweb@0.4.20
+	stdweb-derive@0.5.3
+	stdweb-internal-macros@0.2.9
+	stdweb-internal-runtime@0.1.5
+	subtle@2.4.1
+	surf@2.3.2
+	syn@1.0.109
+	syn@2.0.37
+	system-deps@6.1.1
+	target-lexicon@0.12.11
+	temp-dir@0.1.11
+	thiserror@1.0.49
+	thiserror-impl@1.0.49
+	thread_local@1.1.7
+	time@0.2.27
+	time-macros@0.1.1
+	time-macros-impl@0.1.2
+	tinyvec@1.6.0
+	tinyvec_macros@0.1.1
+	toml@0.7.8
+	toml_datetime@0.6.3
+	toml_edit@0.19.15
+	tracing@0.1.37
+	tracing-attributes@0.1.26
+	tracing-core@0.1.31
+	tracing-futures@0.2.5
+	tracing-log@0.1.3
+	tracing-subscriber@0.3.17
+	typenum@1.17.0
+	unicase@2.7.0
+	unicode-bidi@0.3.13
+	unicode-ident@1.0.12
+	unicode-normalization@0.1.22
+	universal-hash@0.4.1
+	url@2.4.1
+	valuable@0.1.0
+	value-bag@1.4.1
+	vcpkg@0.2.15
+	version-compare@0.1.1
+	version_check@0.9.4
+	waker-fn@1.1.1
+	wasi@0.9.0+wasi-snapshot-preview1
+	wasi@0.11.0+wasi-snapshot-preview1
+	wasm-bindgen@0.2.87
+	wasm-bindgen-backend@0.2.87
+	wasm-bindgen-futures@0.4.37
+	wasm-bindgen-macro@0.2.87
+	wasm-bindgen-macro-support@0.2.87
+	wasm-bindgen-shared@0.2.87
+	web-sys@0.3.64
+	winapi@0.3.9
+	winapi-i686-pc-windows-gnu@0.4.0
+	winapi-x86_64-pc-windows-gnu@0.4.0
+	windows-sys@0.48.0
+	windows-targets@0.48.5
+	windows_aarch64_gnullvm@0.48.5
+	windows_aarch64_msvc@0.48.5
+	windows_i686_gnu@0.48.5
+	windows_i686_msvc@0.48.5
+	windows_x86_64_gnu@0.48.5
+	windows_x86_64_gnullvm@0.48.5
+	windows_x86_64_msvc@0.48.5
+	winnow@0.5.15
+"
+
+inherit cargo meson xdg
+
+DESCRIPTION="Manage your bibliographies using the BibTeX format."
+HOMEPAGE="https://gitlab.gnome.org/World/citations"
+SRC_URI="${CARGO_CRATE_URIS} https://gitlab.gnome.org/World/citations/-/archive/${PV}/citations-${PV}.tar.bz2"
+
+LICENSE="GPL-3+ 0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD Boost-1.0 ISC MIT Unicode-DFS-2016 Unlicense ZLIB"
+SLOT="0"
+KEYWORDS="~amd64"
+
+RDEPEND="
+	>=gui-libs/gtk-4.11[wayland]
+	>=dev-libs/glib-2.76
+	>=gui-libs/libadwaita-1.4
+"
+
+BDEPEND="
+	>=virtual/rust-1.76
+	>=dev-build/meson-0.5.9
+"
+
+QA_FLAGS_IGNORED="usr/bin/${PN}"
+
+PATCHES=(
+	"${FILESDIR}/cargo-env.patch"
+)
+
+src_configure() {
+	meson_src_configure
+}
+
+src_compile() {
+	meson_src_compile
+}
+
+src_install() {
+	meson_src_install
+}
+
+pkg_postinst() {
+	xdg_pkg_postinst
+	glib-compile-schemas /usr/share/glib-2.0/schemas
+}
+
+pkg_postrm() {
+	xdg_pkg_postrm
+}
