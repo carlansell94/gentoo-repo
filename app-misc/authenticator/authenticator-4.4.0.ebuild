@@ -398,7 +398,7 @@ RDEPEND="
 "
 
 BDEPEND="
-	>=virtual/rust-1.53
+	>=dev-lang/rust-1.53:=
 	>=dev-build/meson-0.5.9
 	>=sys-devel/clang-14
 "
