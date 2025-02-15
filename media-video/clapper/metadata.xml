@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+  <maintainer type="person">
+    <email>github-packages@carlansell.co.uk</email>
+    <name>Carl Ansell</name>
+  </maintainer>
   <upstream>
     <remote-id type="github">Rafostar/clapper</remote-id>
   </upstream>
+  <use>
+    <flag name="discoverer">Build Clapper Discoverer feature.</flag>
+    <flag name="doc">Build documentation.</flag>
+    <flag name="gst-plugin">Build GStreamer plugin (includes GTK video sink element).</flag>
+    <flag name="gtk">Use python2 as Python interpreter.</flag>
+    <flag name="introspection">Build GObject Introspection data.</flag>
+    <flag name="mpris">Build Clapper MPRIS feature.</flag>
+    <flag name="plugins">Ability to load libpeas based plugins that enhance capabilities.</flag>
+    <flag name="server">Build Clapper Server feature.</flag>
+    <flag name="vapi">Build Vala bindings.</flag>
+  </use>
 </pkgmetadata>
