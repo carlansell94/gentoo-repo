@@ -24,6 +24,7 @@ RDEPEND="
 	>=media-libs/gstreamer-1.24.0
 	>=media-libs/gst-plugins-base-1.24.0
 	>=gui-libs/libadwaita-1.4.0
+	plugins? ( >=dev-libs/libpeas-2.0.0 )
 	doc? ( dev-util/gi-docgen )
 	server? ( net-libs/libmicrodns )
 "
