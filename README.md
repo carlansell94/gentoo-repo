@@ -12,3 +12,8 @@ Packages are likely to be GNOME/GTK focused.
 * 🌐 net-misc/escambo: API tester (https://github.com/CleoMenezesJr/escambo/)
 
 Check out the linked repositories for more details about each application.
+
+## Bundled Crates
+Some ebuilds in this repository make use of bundled Rust crates, as is now recommended for Rust-based packages. These bundles are hosted on my website, to reduce the size of files downloaded when syncing the repo.
+
+These packages are not covered by the main repository licence. Please check each package for its individual licence.

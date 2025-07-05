@@ -6,14 +6,14 @@
 EAPI=8
 
 CRATES=" "
+RESTRICT="mirror"
 
 inherit cargo meson xdg
 
 DESCRIPTION="Generate Two-Factor Codes"
 HOMEPAGE="https://gitlab.gnome.org/World/Authenticator"
 SRC_URI="
-	${CARGO_CRATE_URIS}
-	authenticator-${PV}-crates.tar.xz
+	https://www.carlansell.co.uk/gentoo-repo/authenticator-${PV}-crates.tar.xz
 	https://gitlab.gnome.org/World/Authenticator/-/archive/${PV}/Authenticator-${PV}.tar.bz2 -> ${P}.tar.bz2
 "
 S="${WORKDIR}/Authenticator-${PV}"
