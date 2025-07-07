@@ -36,7 +36,7 @@ RDEPEND="
 "
 
 BDEPEND="
-	>=dev-lang/rust-1.80:=
+	>=dev-lang/rust-1.85:=
 	>=dev-build/meson-0.5.9
 	>=llvm-core/clang-14
 "
