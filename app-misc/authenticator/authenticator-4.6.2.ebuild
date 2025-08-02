@@ -31,6 +31,7 @@ RDEPEND="
 	>=media-libs/gstreamer-1.18
 	>=media-libs/gst-plugins-base-1.18
 	>=media-libs/gst-plugins-bad-1.18
+	>=media-plugins/gst-plugin-gtk4-0.13
 	>=gui-libs/libadwaita-1.5
 "
 
