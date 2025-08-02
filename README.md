@@ -9,6 +9,7 @@ Packages are likely to be GNOME/GTK focused.
 * ⚒️ dev-util/share-preview: Preview and debug websites metadata tags for social media share (https://github.com/rafaelmardojai/share-preview)
 * 📻 media-sound/podcasts: Listen to your favorite podcasts, right from your desktop (https://gitlab.gnome.org/World/podcasts)
 * 📹 media-video/clapper: A GTK4/GStreamer based video player (https://github.com/Rafostar/clapper)
+* 📹 media-video/showtime: A GTK4 video player, which will replace Totem as the GNOME default in a future release (https://gitlab.gnome.org/GNOME/showtime)
 * 🌐 net-misc/escambo: API tester (https://github.com/CleoMenezesJr/escambo/)
 
 Check out the linked repositories for more details about each application.
